@@ -143,4 +143,17 @@ public class Controller {
         JOptionPane.showMessageDialog(null, "Amount From Filter: " + sortedList.size());
     }
 
+    public void fillTable() {
+        messages.clear();
+        messages.addAll
+        (
+                new Message("CLIENT3"),
+                new Message("Webserver"),
+                new Message("SERVER1"),
+                new Message("SERVER2"),
+                new Message("SERVER1"),
+                new Message("Webserver")
+        );
+    }
+
 }
