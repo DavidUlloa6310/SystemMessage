@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="157.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <left>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <TextField fx:id="machineIDText" promptText="Machine ID" />
+            <TextField fx:id="descriptionText" promptText="Description" />
+            <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertMessage" prefHeight="25.0" prefWidth="198.0" text="Insert">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <TextField fx:id="searchTextField" promptText="Filter (Machine ID)">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#removeFiltered" prefHeight="25.0" prefWidth="198.0" text="Remove All" />
+            <Button mnemonicParsing="false" onAction="#countFiltered" prefHeight="25.0" prefWidth="198.0" text="Count" />
+            <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tools">
+            <items>
+              <MenuItem fx:id="removeButton" mnemonicParsing="false" onAction="#removeMessage" text="Remove" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <right>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="descriptionTextArea" prefHeight="384.0" prefWidth="200.0" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#updateDescription" prefHeight="25.0" prefWidth="199.0" text="Sumbit Change" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <TableView fx:id="messageTable" onMouseClicked="#fillDescriptionBox" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="machineIDColumn" prefWidth="75.0" text="MachineID" />
+          <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
