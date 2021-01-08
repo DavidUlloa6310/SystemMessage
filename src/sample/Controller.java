@@ -43,6 +43,8 @@ public class Controller {
     @FXML
     private TextField searchTextField;
 
+    private boolean filterDescription = false;
+
     private ObservableList<Message> messages = FXCollections.observableArrayList
     (
             new Message("DataBase Inconsistencies", "Issue with schema not being updated consistently throughout all platforms. Must  fix uniformity."),
@@ -78,11 +80,11 @@ public class Controller {
 
                String lowerCaseFilter = newValue.toLowerCase();
 
-               if (message.getMessageID().toLowerCase().contains(lowerCaseFilter)) {
-                   return true;
+               if (!filterDescription) {
+                   return message.getMessageID().toLowerCase().contains(lowerCaseFilter);
+               } else {
+                   return message.getDescription().toLowerCase().contains(lowerCaseFilter);
                }
-
-               return false;
            });
         });
 
@@ -124,6 +126,13 @@ public class Controller {
         if (messageTable.getSelectionModel().getSelectedItem() != null) {
             messages.remove(messageTable.getSelectionModel().getSelectedItem());
         }
+    }
+
+    public void filterDescription() {
+        String promptText;
+        filterDescription = !filterDescription;
+        if (filterDescription) promptText = "Filter (Description)"; else promptText = "Filter (Machine ID)";
+        searchTextField.setPromptText(promptText);
     }
 
     public void removeFiltered() {

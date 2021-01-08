@@ -21,8 +21,14 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <CheckBox fx:id="filterDescriptionCheck" mnemonicParsing="false" onAction="#filterDescription" text="Filter Description" textAlignment="CENTER" />
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
             <Button mnemonicParsing="false" onAction="#removeFiltered" prefHeight="25.0" prefWidth="198.0" text="Remove All" />
-            <Button mnemonicParsing="false" onAction="#countFiltered" prefHeight="25.0" prefWidth="198.0" text="Count" />
             <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
@@ -33,6 +39,7 @@
           <Menu mnemonicParsing="false" text="Tools">
             <items>
               <MenuItem fx:id="removeButton" mnemonicParsing="false" onAction="#removeMessage" text="Remove" />
+                  <MenuItem mnemonicParsing="false" onAction="#countFiltered" text="Count" />
             </items>
           </Menu>
         </menus>
